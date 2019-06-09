@@ -16,7 +16,7 @@ export default class Template extends React.Component {
         <Helmet
           title="DifferApp - Smart File Comparison Tool"
           meta={[
-            { name: "description", content: "A Smart File Comparison Tool" },
+            { name: "description", content: "Find the difference between two file online or with differ desktop app" },
             { name: "keywords", content: "File comparison, file diff, text" },
           ]}
         />
@@ -41,9 +41,14 @@ export default class Template extends React.Component {
                   textDecoration: "none",
                 }}
               >
-                Differ App
+                Differ App - Compare two files easily
               </Link>
             </h1>
+            <h2 style={{
+              fontSize: '15px',
+              color: '#dddddd',
+              lineHeight: '18px'
+            }}>Differ App is an easy tool to compare two files smartly. You can compare JSON, XML and properties without considering their structural positions. Download desktop app to use it offline along with folder comparison feature.</h2>
           </div>
         </div>
         <div
