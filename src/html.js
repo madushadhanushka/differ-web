@@ -29,6 +29,8 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"></link>
+          <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico"></link>
           {this.props.headComponents}
           {css}
         </head>
