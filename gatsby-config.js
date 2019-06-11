@@ -1,7 +1,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Differ App`
+    title: `Differ App`,
+    siteUrl: `https://differ.netlify.com`,
   },
   plugins: [`gatsby-plugin-react-helmet`,
   {
@@ -9,5 +10,5 @@ module.exports = {
     options: {
       trackingId: "UA-140800454-1",
     },
-  },]
+  },`gatsby-plugin-sitemap`]
 };
