@@ -22,7 +22,29 @@ export default class Index extends React.Component {
     this.getDiff = this.getDiff.bind(this)
   }
   componentDidMount() {
-
+    this.getDiff()
+    console.log("mounted")
+    /*<![CDATA[/* */
+      var _pop = _pop || [];
+      _pop.push(['siteId', 3394399]);
+      _pop.push(['minBid', 0]);
+      _pop.push(['popundersPerIP', 0]);
+      _pop.push(['delayBetween', 0]);
+      _pop.push(['default', false]);
+      _pop.push(['defaultPerDay', 0]);
+      _pop.push(['topmostLayer', false]);
+      (function() {
+        var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+        var s = document.getElementsByTagName('script')[0]; 
+        pa.src = '//c1.popads.net/pop.js';
+        pa.onerror = function() {
+          var sa = document.createElement('script'); sa.type = 'text/javascript'; sa.async = true;
+          sa.src = '//c2.popads.net/pop.js';
+          s.parentNode.insertBefore(sa, s);
+        };
+        s.parentNode.insertBefore(pa, s);
+      })();
+    /*]]>/* */
   }
   compareIntegerList(a, b) {
     if (a.name < b.name) {
@@ -244,7 +266,34 @@ export default class Index extends React.Component {
         </div>
         <br />
         <div id="diff_content"></div>
+        <div className="div_desc">
+          <h1>Smart File Comparison Tool for Developers</h1>
+          <h2>Differ is Smart</h2>
+          <p>Have you ever endedup with a mess when you comparing two XML or JSON files. Traditional diff tools cannot identify the structure 
+          of a XML or JSON file. Differ provide an elagent way of comparing two XML, JSON or Property files. You can tryout online version in
+          here. Folder comparison support provided by the desktop application.
+          </p>
 
+          <h2>How Differ App Works</h2>
+          <p>
+            Differ is based on Javascript language. Therefore It's platform independent. Differ desktop application running on electronJS.  
+            you can run Differ application on Mac, Windows and Linux environment. 
+          </p>
+          <p>
+          Differ support two types of comparison. It support regular plain text comparison. Other than plain text comparison, It also
+            support structural comparsion. Differ app support three types of file structures. Differ app can compare following types of 
+            files structurally.
+          </p>
+          <li>XML</li>
+          <li>JSON</li>
+          <li>Property</li>
+          <p>
+            Differ app can read these file format and convert these files into its cannonical representation. If two files structure are same, 
+            then canonicalised form of the two files should be also same. Differ apply diff on the cannonical representation of the files and 
+            show the difference.
+          </p>
+        </div>
+        
       </div>
     );
   }

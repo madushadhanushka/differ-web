@@ -14,10 +14,10 @@ export default class Template extends React.Component {
     return (
       <div>
         <Helmet
-          title="DifferApp - Smart File Comparison Tool"
+          title="DifferApp - Smart Text File Comparison Tool to find difference between two JSON, XML and Property files"
           meta={[
-            { name: "description", content: "Find the difference between two file online or with differ desktop app" },
-            { name: "keywords", content: "File comparison, file diff, text" },
+            { name: "description", content: "Differ is an online and desktop diff tool to compare text, JSON, XML and Property to find the difference between two text files" },
+            { name: "keywords", content: "online diff, diff, diff tool, quick diff, quickdiff, online diff tool, diff checker, smart diff" },
           ]}
         />
         <div

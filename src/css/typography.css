@@ -683,3 +683,7 @@ pre tt:after {
 .git_des{
   display: inline-block;
 }
+.div_desc{
+  display: inline-block;
+  width: 80%;
+}
