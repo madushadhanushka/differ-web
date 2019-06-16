@@ -29,6 +29,7 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <meta name="google-site-verification" content="SunVbBEDzklHGUzbegVL2fSEdU7d4f8vL8h3ZyvFAQw" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"></link>
           <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico"></link>
           {this.props.headComponents}
