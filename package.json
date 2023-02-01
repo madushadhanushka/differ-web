@@ -6,7 +6,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "diff": "^4.0.1",
-    "diff2html": "^2.9.0",
+    "diff2html": "^2.12.2",
     "dot-properties": "^0.3.1",
     "gatsby": "^1.9.261",
     "gatsby-link": "^1.0.1",
@@ -15,7 +15,7 @@
     "json-keys-sort": "^1.2.0",
     "react-async-script": "^0.9.1",
     "react-bootstrap": "^1.0.0-beta.8",
-    "react-gh-like-diff": "^1.0.6",
+    "react-gh-like-diff": "^1.1.4",
     "react-google-recaptcha": "^0.11.1",
     "react-redux": "^5.1.1",
     "sort-json": "^2.0.0",

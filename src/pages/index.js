@@ -3,7 +3,6 @@ import Link from "gatsby-link";
 import Helmet from "react-helmet";
 var diff = require('diff')
 import { Diff2Html } from 'diff2html'
-import 'react-gh-like-diff/lib/diff2html.min.css';
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -209,38 +208,21 @@ export default class Index extends React.Component {
 
       <div>
         <ul>
-          <span className="text_span">
+          <div className="text_span">
             <div>First text to compare</div>
-            <textarea name="fileOne" value={this.state.valueOne} onChange={this.handleOneChange} rows={20} cols={70} spellCheck="false" />
-          </span>
-          <span className="text_span">
+            <textarea className="textEditArea" name="fileOne" value={this.state.valueOne} onChange={this.handleOneChange} rows={20} spellCheck="false" />
+          </div>
+          <div className="text_span">
             <div>Second text to compare</div>
-            <textarea name="fileTwo" value={this.state.valueTwo} onChange={this.handleTwoChange} rows={20} cols={70} spellCheck="false" />
-          </span>
-          <span className="text_span">
-            <div className="download_wrap">
-              <div className="div_title">Download Desktop Application</div>
-              <img className="image_title" src="screen.png" width = "390px"/>
-              <div className="links_ls">
-                <div className="downlink"><a className="down_a" href="https://www.dropbox.com/s/kvwtlfo1sgbvb2o/differ-linux.zip?dl=1">Linux</a></div>
-                <div className="downlink"><a className="down_a" href="https://www.dropbox.com/s/j42llwmpa8d9zir/differ-mac.zip?dl=1">Mac</a></div>
-                <div className="downlink"><a className="down_a" href="https://www.dropbox.com/s/uvp1gh8k6ekg2ef/differ-win.zip?dl=1">Windows</a></div>
-            </div>
-            <div className="git_des">
-              <br/>
-              Check this project on Github
-              <br/>
-            <a className="down_a" href="https://github.com/madushadhanushka/differ"><img className="image_git" src="differicon.png" width = "200px"/></a>
-            </div>
-            
-            </div>
-          </span>
+            <textarea className="textEditArea" name="fileTwo" value={this.state.valueTwo} onChange={this.handleTwoChange} rows={20} spellCheck="false" />
+          </div>
         </ul>
         <div className="button_div">
-          <span className="radio_button"><input type="radio" name="selType" value="Plain" checked={this.state.compMode === "Plain"} onChange={this.onPlainChanged} />Plain&nbsp;&nbsp;</span>
-          <span className="radio_button"><input class="radio" type="radio" name="selType" value="XML" checked={this.state.compMode === "XML"} onChange={this.onXMLChanged} />XML&nbsp;&nbsp;</span>
-          <span className="radio_button"><input class="radio" type="radio" name="selType" value="JSON" checked={this.state.compMode === "JSON"} onChange={this.onJsonChanged} />JSON&nbsp;&nbsp;</span>
-          <span className="radio_button"><input class="radio" type="radio" name="selType" value="Property" checked={this.state.compMode === "Property"} onChange={this.onPropChanged} />Property</span>
+          Compare as 
+          <span title="Compare as a plain text" className="radio_button"><input type="radio" name="selType" value="Plain" checked={this.state.compMode === "Plain"} onChange={this.onPlainChanged} />Plain&nbsp;&nbsp;</span>
+          <span title="Compare as a XML document" className="radio_button"><input class="radio" type="radio" name="selType" value="XML" checked={this.state.compMode === "XML"} onChange={this.onXMLChanged} />XML&nbsp;&nbsp;</span>
+          <span title="Compare as a JSON document" className="radio_button"><input class="radio" type="radio" name="selType" value="JSON" checked={this.state.compMode === "JSON"} onChange={this.onJsonChanged} />JSON&nbsp;&nbsp;</span>
+          <span title="Compare as a property file" className="radio_button"><input class="radio" type="radio" name="selType" value="Property" checked={this.state.compMode === "Property"} onChange={this.onPropChanged} />Property</span>
           <button className="submit_button" type="submit" onClick={this.getDiff}>Compare</button>
         </div>
         <br />
@@ -272,6 +254,19 @@ export default class Index extends React.Component {
             show the difference.
           </p>
         </div>
+        <span className="text_span">
+            <div className="download_wrap">
+              <div className="div_title">Download Desktop Application</div>
+              <img className="image_title" src="screen.png" width = "390px"/>
+            <div className="git_des">
+              <br/>
+              Check this project on Github
+              <br/>
+            <a className="down_a" href="https://github.com/madushadhanushka/differ"><img className="image_git" src="differicon.png" width = "200px"/></a>
+            </div>
+            
+            </div>
+          </span>
         
       </div>
     );
