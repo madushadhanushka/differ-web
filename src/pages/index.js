@@ -1,9 +1,17 @@
+
 import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
+import "../css/differ.css"
 var diff = require('diff')
-import { Diff2Html } from 'diff2html'
-export default class Index extends React.Component {
+var convert = require('xml-js')
+var c14n = require('xml-c14n')()
+var diff = require('diff')
+var xmldom = require('xmldom')
+const json = require('json-keys-sort')
+const { parse } = require('dot-properties')
+export const Head = () => <title>Home Page</title>
+export default class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,24 +73,21 @@ export default class Index extends React.Component {
     return sortedObj
   }
   compPlain() {
+    const Diff2html = require('diff2html');
     var changesOth = diff.createPatch("Changes", this.state.valueOne, this.state.valueTwo)
-    var diffHtml = Diff2Html.getPrettyHtml(
+    var diffHtml = Diff2html.html(
       changesOth,
       { inputFormat: 'diff', showFiles: false, matching: 'lines', outputFormat: 'side-by-side' }
     );
     document.getElementById("diff_content").innerHTML = diffHtml;
   }
   compXML() {
+    const Diff2html = require('diff2html');
     console.log("XML document")
     var value1 = this.state.valueOne
     var value2 = this.state.valueTwo
-    var convert = require('xml-js')
-
-    var xmldom = require('xmldom')
     var documentOne = (new xmldom.DOMParser()).parseFromString(value1)
     var documentTwo = (new xmldom.DOMParser()).parseFromString(value2)
-    var c14n = require('xml-c14n')()
-    var diff = require('diff')
     var canonicaliser = c14n.createCanonicaliser('http://www.w3.org/2001/10/xml-exc-c14n#WithComments')
     canonicaliser.canonicalise(documentOne, function (err1, res1) {
       if (err1) {
@@ -107,7 +112,7 @@ export default class Index extends React.Component {
         var resultOne = convert.js2xml(sorted, options)
         var resultTwo = convert.js2xml(sortedTwo, options)
         var changesOth = diff.createPatch("Changes", resultOne, resultTwo)
-        var diffHtml = Diff2Html.getPrettyHtml(
+        var diffHtml = Diff2html.html(
           changesOth,
           { inputFormat: 'diff', showFiles: false, matching: 'lines', outputFormat: 'side-by-side' }
         );
@@ -117,10 +122,10 @@ export default class Index extends React.Component {
 
   }
   compJson() {
+    const Diff2html = require('diff2html');
     console.log("Json document")
     var value1 = this.state.valueOne
     var value2 = this.state.valueTwo
-    const json = require('json-keys-sort')
     var sortedJson1, sortedJson2
     try {
       sortedJson1 = JSON.stringify(json.sort(JSON.parse(value1), true), null, 4)
@@ -130,17 +135,17 @@ export default class Index extends React.Component {
       return
     }
     var changesOth = diff.createPatch("Changes", sortedJson1, sortedJson2)
-    var diffHtml = Diff2Html.getPrettyHtml(
+    var diffHtml = Diff2html.html(
       changesOth,
       { inputFormat: 'diff', showFiles: false, matching: 'lines', outputFormat: 'side-by-side' }
     );
     document.getElementById("diff_content").innerHTML = diffHtml;
   }
   compProp() {
+    const Diff2html = require('diff2html');
     var value1 = this.state.valueOne
     var value2 = this.state.valueTwo
     console.log("property file")
-    const { parse } = require('dot-properties')
     var linesPro1 = parse(value1)
     var linesPro2 = parse(value2)
     var strProList1 = []
@@ -162,7 +167,7 @@ export default class Index extends React.Component {
       proStr2 += strProList2[proIteml2] + '\n'
     }
     var changesOth = diff.createPatch("Changes", proStr1, proStr2)
-    var diffHtml = Diff2Html.getPrettyHtml(
+    var diffHtml = Diff2html.html(
       changesOth,
       { inputFormat: 'diff', showFiles: false, matching: 'lines', outputFormat: 'side-by-side' }
     );
@@ -207,17 +212,20 @@ export default class Index extends React.Component {
     return (
 
       <div>
-        <ul>
-          <div className="text_span">
-            <div>First text to compare</div>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"></link>
+        <div class="container">
+        <div class="row">
+    <div class="col-sm">
+    <div>First text to compare</div>
             <textarea className="textEditArea" name="fileOne" value={this.state.valueOne} onChange={this.handleOneChange} rows={20} spellCheck="false" />
-          </div>
-          <div className="text_span">
-            <div>Second text to compare</div>
+    </div>
+    <div class="col-sm">
+    <div>Second text to compare</div>
             <textarea className="textEditArea" name="fileTwo" value={this.state.valueTwo} onChange={this.handleTwoChange} rows={20} spellCheck="false" />
-          </div>
-        </ul>
-        <div className="button_div">
+    </div>
+  </div>
+  <div className="button_div">
           Compare as 
           <span title="Compare as a plain text" className="radio_button"><input type="radio" name="selType" value="Plain" checked={this.state.compMode === "Plain"} onChange={this.onPlainChanged} />Plain&nbsp;&nbsp;</span>
           <span title="Compare as a XML document" className="radio_button"><input class="radio" type="radio" name="selType" value="XML" checked={this.state.compMode === "XML"} onChange={this.onXMLChanged} />XML&nbsp;&nbsp;</span>
@@ -227,6 +235,8 @@ export default class Index extends React.Component {
         </div>
         <br />
         <div id="diff_content"></div>
+</div>
+        
         <div className="div_desc">
           <h1>Smart File Comparison Tool for Developers</h1>
           <h2>Differ is Smart</h2>

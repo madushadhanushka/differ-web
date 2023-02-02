@@ -1,36 +1,54 @@
-# Integrating Netlify Form Handling in Gatsby
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby minimal starter
+</h1>
 
-Example for integrating a basic contact form with Netlify’s form handling feature (based on the [default Gatsby starter](https://github.com/gatsbyjs/gatsby-starter-default))
+## 🚀 Quick start
 
-Demo: https://gatsby-form-example.netlify.com
+1.  **Create a Gatsby site.**
 
-## Deploy
+    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/imorente/gatsby-netlify-form-example)
+    ```shell
+    # create a new Gatsby site using the minimal starter
+    npm init gatsby
+    ```
 
-## reCAPTCHA
+2.  **Start developing.**
 
-This example site uses [react-google-recaptcha](https://github.com/dozoisch/react-google-recaptcha) to render the reCAPTCHA widget.
+    Navigate into your new site’s directory and start it up.
 
-To make the reCAPTCHA example work in your own copy of this site, you’ll need to do the following:
-1. [Sign up for a reCAPTCHA API key pair](http://www.google.com/recaptcha/admin) for your site.
-2. [Log in to your Netlify account](https://app.netlify.com), and add the following
-environment variables to your site’s Settings > Build & deploy > Build environment variables:
-  - `SITE_RECAPTCHA_KEY` with your reCAPTCHA site key.
-  - `SITE_RECAPTCHA_SECRET` with your reCAPTCHA secret key.
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
-**Important**: the environment variables need to be called `SITE_RECAPTCHA_KEY` and `SITE_RECAPTCHA_SECRET` for the Netlify backend to find them. If you add a `GATSBY_` prefix to the variable names, the Netlify backend won't recognize them, the reCAPTCHA verification will fail, and your form submissions won't be stored.
+3.  **Open the code and start customizing!**
 
-3. Change the build command for your site to
-```
-echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build
-```
-This will make the SITE_RECAPTCHA_KEY available to the Gatsby build in production.
+    Your site is now running at http://localhost:8000!
 
-To see the reCAPTCHA widget locally, add `SITE_RECAPTCHA_KEY=your-reCAPTCHA-API-site-key`
-to your local [.env.development](https://www.gatsbyjs.org/docs/environment-variables/) file.
+    Edit `src/pages/index.js` to see your site update in real-time!
 
-## Troubleshooting
+4.  **Learn more**
 
-### Forms stop working after upgrading to Gatsby v2
-This can be caused by the offline-plugin. [Workaround](https://github.com/gatsbyjs/gatsby/issues/7997#issuecomment-419749232) is to use `?no-cache=1` in the POST url to prevent the service worker from handling form submissions (Thanks to [@phmu_office](https://twitter.com/phmu_office/status/1047810173417472000) for the heads up ✨)
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+## 🚀 Quick start (Gatsby Cloud)
+
+Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+
+[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)

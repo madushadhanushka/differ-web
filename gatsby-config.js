@@ -1,13 +1,15 @@
-
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
-    title: `Differ App`
+    title: `differ`,
+    siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: [`gatsby-plugin-react-helmet`,
-  {
-    resolve: `gatsby-plugin-google-analytics`,
+  plugins: ["gatsby-plugin-netlify-cms", "gatsby-plugin-google-gtag", "gatsby-plugin-sitemap", {
+    resolve: 'gatsby-plugin-manifest',
     options: {
-      trackingId: "UA-140800454-1",
-    },
-  },]
+      "icon": "src/images/icon.png"
+    }
+  }]
 };
